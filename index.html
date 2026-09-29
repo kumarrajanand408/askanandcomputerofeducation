@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.S.K ANAND COMPUTER OF EDUCATION - Official Portal</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0a2540;
+            --secondary: #d32f2f;
+            --accent: #ffb300;
+            --light: #f8f9fa;
+            --dark: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        /* Top Contact Header */
+        .top-bar {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            flex-wrap: wrap;
+        }
+
+        .top-bar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        /* Main Branding Header */
+        .header {
+            background: linear-gradient(135deg, #0d47a1, #1976d2);
+            color: white;
+            padding: 25px 5%;
+            text-align: center;
+            border-bottom: 4px solid var(--accent);
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            font-size: 1rem;
+            color: #bbdefb;
+        }
+
+        /* Navigation Menu */
+        .nav {
+            background: #111;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-weight: 600;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .nav a:hover {
+            background: var(--secondary);
+        }
+
+        /* Marquee Ticker */
+        .ticker {
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            padding: 6px 5%;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .ticker-label {
+            background: var(--secondary);
+            color: white;
+            padding: 3px 10px;
+            margin-right: 10px;
+            border-radius: 3px;
+            white-space: nowrap;
+        }
+
+        /* Layout Container */
+        .container {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 20px;
+            padding: 20px 5%;
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            border-radius: 8px;
+            padding: 50px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 15px;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #b71c1c;
+        }
+
+        /* E-Max Style Sidebar Portal Boxes */
+        .sidebar-box {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .box-title {
+            background: var(--primary);
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .box-links {
+            list-style: none;
+        }
+
+        .box-links li a {
+            display: block;
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            color: var(--dark);
+            text-decoration: none;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .box-links li a:hover {
+            background: #e3f2fd;
+            color: var(--primary);
+            padding-left: 20px;
+        }
+
+        /* Headings */
+        .section-header {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin: 30px 0 15px;
+            position: relative;
+        }
+
+        .section-header::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+            display: block;
+            margin: 5px auto 0;
+        }
+
+        /* Courses Cards Grid */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 0 5% 30px;
+        }
+
+        .course-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary);
+        }
+
+        .course-card h3 {
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        /* Contact Details Card */
+        .contact-card {
+            background: white;
+            padding: 30px 5%;
+            margin: 20px 5%;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        /* Popups / Modals */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 25px;
+            width: 90%;
+            max-width: 450px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px; right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            text-decoration: none;
+            z-index: 999;
+        }
+
+        footer {
+            background: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        @media(max-width: 768px) {
+            .container { grid-template-columns: 1fr; }
+            .header h1 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div>
+            <i class="fa-solid fa-phone"></i> +91 8521784114 &nbsp;|&nbsp; 
+            <i class="fa-solid fa-envelope"></i> kumarrajanand408@gmail.com
+        </div>
+        <div>
+            <a href="javascript:void(0)" onclick="openModal('studentLoginModal')"><i class="fa-solid fa-user"></i> Student Login</a>
+            <a href="javascript:void(0)" onclick="openModal('adminLoginModal')"><i class="fa-solid fa-lock"></i> Center Login</a>
+        </div>
+    </div>
+
+    <!-- Header Banner -->
+    <header class="header">
+        <h1>A.S.K ANAND COMPUTER OF EDUCATION</h1>
+        <p>An ISO Certified Computer Training & Skill Development Center</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="nav">
+        <ul>
+            <li><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="javascript:void(0)" onclick="openModal('verifyModal')">Student Verification</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- News Marquee -->
+    <div class="ticker">
+        <span class="ticker-label">Notice</span>
+        <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+            Admissions are open for new computer batches! | Verify your certificates online instantly | Address: SHAMPUR, MAJHAULIA, WEST CHAMPARAN BIHAR-845454 | Helpline: 8521784114
+        </marquee>
+    </div>
+
+    <!-- Main Section -->
+    <div class="container">
+        <!-- Hero Banner -->
+        <div class="hero">
+            <h2>Welcome To A.S.K Anand Computer</h2>
+            <p>Empowering Students with Practical Computer Education & Technical Skills.</p>
+            <button class="btn" onclick="openModal('verifyModal')">Verify Certificate Online</button>
+        </div>
+
+        <!-- Right Side Modules -->
+        <div>
+            <div class="sidebar-box">
+                <div class="box-title"><i class="fa-solid fa-graduation-cap"></i> Student Zone</div>
+                <ul class="box-links">
+                    <li><a onclick="openModal('verifyModal')"><i class="fa-solid fa-chevron-right"></i> Certificate Verification</a></li>
+                    <li><a onclick="openModal('studentLoginModal')"><i class="fa-solid fa-chevron-right"></i> Student Login</a></li>
+                    <li><a onclick="alert('Exam result module loading...')"><i class="fa-solid fa-chevron-right"></i> Exam Results</a></li>
+                    <li><a onclick="alert('Please contact center head for Admit Card.')"><i class="fa-solid fa-chevron-right"></i> Download Admit Card</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-box">
+                <div class="box-title"><i class="fa-solid fa-user-shield"></i> Administration</div>
+                <ul class="box-links">
+                    <li><a onclick="openModal('adminLoginModal')"><i class="fa-solid fa-chevron-right"></i> Center Admin Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popular Courses Section -->
+    <h2 class="section-header" id="courses">Offered Courses</h2>
+    <div class="courses-grid">
+        <div class="course-card">
+            <h3>ADCA</h3>
+            <p><strong>Advanced Diploma in Computer Applications</strong></p>
+            <p>Duration: 12 Months</p>
+        </div>
+        <div class="course-card">
+            <h3>DCA</h3>
+            <p><strong>Diploma in Computer Applications</strong></p>
+            <p>Duration: 6 Months</p>
+        </div>
+        <div class="course-card">
+            <h3>Tally Prime</h3>
+            <p><strong>GST & Accounting Training</strong></p>
+            <p>Duration: 3 Months</p>
+        </div>
+        <div class="course-card">
+            <h3>DTP</h3>
+            <p><strong>Desktop Publishing & Graphic Design</strong></p>
+            <p>Duration: 3 Months</p>
+        </div>
+    </div>
+
+    <!-- Contact Info Section -->
+    <div class="contact-card" id="contact">
+        <div>
+            <h4><i class="fa-solid fa-location-dot" style="color:var(--secondary)"></i> Center Address</h4>
+            <p>SHAMPUR, MAJHAULIA<br>WEST CHAMPARAN, BIHAR - 845454</p>
+        </div>
+        <div>
+            <h4><i class="fa-solid fa-phone" style="color:var(--secondary)"></i> Mobile Number</h4>
+            <p>+91 8521784114</p>
+        </div>
+        <div>
+            <h4><i class="fa-solid fa-envelope" style="color:var(--secondary)"></i> Official Email</h4>
+            <p>kumarrajanand408@gmail.com</p>
+        </div>
+    </div>
+
+    <!-- Verification Popup -->
+    <div class="modal" id="verifyModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('verifyModal')">&times;</span>
+            <h3 style="margin-bottom:15px; color:var(--primary); text-align:center;">Certificate / Student Verification</h3>
+            <form onsubmit="handleVerification(event)">
+                <div class="form-group">
+                    <label>Verification Type</label>
+                    <select required>
+                        <option value="cert">Certificate / Marksheet</option>
+                        <option value="enroll">Student Registration</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Roll Number / Registration No.</label>
+                    <input type="text" placeholder="Enter Registration Number" id="rollNo" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Verify Now</button>
+            </form>
+            <div id="verifyResult" style="margin-top:15px; font-weight:bold; text-align:center;"></div>
+        </div>
+    </div>
+
+    <!-- Student Login Popup -->
+    <div class="modal" id="studentLoginModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('studentLoginModal')">&times;</span>
+            <h3 style="margin-bottom:15px; color:var(--primary); text-align:center;">Student Portal Login</h3>
+            <form onsubmit="alert('Login system connected successfully!'); return false;">
+                <div class="form-group">
+                    <label>Registration No. / User ID</label>
+                    <input type="text" placeholder="Enter User ID" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Enter Password" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Login Popup -->
+    <div class="modal" id="adminLoginModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('adminLoginModal')">&times;</span>
+            <h3 style="margin-bottom:15px; color:var(--primary); text-align:center;">Center Admin Panel Login</h3>
+            <form onsubmit="alert('Admin Authentication Required.'); return false;">
+                <div class="form-group">
+                    <label>Center Code / Admin ID</label>
+                    <input type="text" placeholder="Enter Center ID" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Access Panel</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/918521784114?text=Hello%20A.S.K%20ANAND%20COMPUTER,%20I%20want%20information%20regarding%20courses." class="whatsapp-btn" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <strong>A.S.K ANAND COMPUTER OF EDUCATION</strong>. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript Script -->
+    <script>
+        function openModal(id) {
+            document.getElementById(id).style.display = 'flex';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+            if(id === 'verifyModal') {
+                document.getElementById('verifyResult').innerHTML = '';
+            }
+        }
+
+        function handleVerification(event) {
+            event.preventDefault();
+            const roll = document.getElementById('rollNo').value;
+            const resBox = document.getElementById('verifyResult');
+            
+            resBox.style.color = 'green';
+            resBox.innerHTML = 'Searching Database...';
+            
+            setTimeout(() => {
+                resBox.innerHTML = `Record found for Roll No: ${roll} <br> <span style="color:blue;">Status: Active & Verified</span>`;
+            }, 1200);
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
